@@ -44,16 +44,14 @@ public class ProductControllerTest {
 
     @Test
     public void calculerMargeProduit() {
-        //ResponseEntity requestUnAuth = this.restTemplate.getForEntity(baseUrl + port + "/AdminProduits", String.class);
-        //assertEquals("200",requestUnAuth.getStatusCode().toString());
-
+    //to do
     }
 
     @Test
     public void trierProduitsParOrdreAlphabetique() {
         ResponseEntity request200 = this.restTemplate.getForEntity(baseUrl + port + "/ProduitsTries", String.class);
         assertEquals("200",request200.getStatusCode().toString());
-
+        //to do
     }
 
     @Test

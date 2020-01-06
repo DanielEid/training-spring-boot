@@ -33,7 +33,8 @@ public class ProductController {
 
     //Récupérer la liste des produits
 
-    @RequestMapping(value = "/Produits", method = RequestMethod.GET)
+    @RequestMapping(value
+            = "/Produits", method = RequestMethod.GET)
 
     public MappingJacksonValue listeProduits() {
 
@@ -88,7 +89,7 @@ public class ProductController {
         Product productAdded =  productDao.save(product);
 
 
-        if(product.getPrix() <=0) throw new com.ecommerce.microcommerce.exceptions.ProduitGratuitException();
+        if(product.getPrix() <=0) throw new com.ecommerce.microcommerce.web.exceptions.ProduitGratuitException();
 
         if (productAdded == null)
             return ResponseEntity.noContent().build();
