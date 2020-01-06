@@ -87,9 +87,12 @@ public class ProductController {
 
         Product productAdded =  productDao.save(product);
 
+
+        if(product.getPrix() <=0) throw new com.ecommerce.microcommerce.exceptions.ProduitGratuitException();
+
         if (productAdded == null)
             return ResponseEntity.noContent().build();
-
+        
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("/{id}")
