@@ -17,6 +17,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 
 @Api( description="API pour es opérations CRUD sur les produits.")
@@ -61,6 +63,13 @@ public class ProductController {
         return produit;
     }
 
+    //Recupération de la marge d'un produit
+    @ApiOperation(value = "Récupérer la marge des produits")
+    @GetMapping(value = "/ProduitsTries")
+    public ResponseEntity calculerMargeProduit() {
+        Map<String, Integer> response = productDao.findAll().stream().collect(Collectors.toMap(Product::toString, Product::getMarge));
+        return ResponseEntity.ok(response);
+    }
 
 
 
