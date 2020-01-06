@@ -92,7 +92,7 @@ public class ProductController {
 
         if (productAdded == null)
             return ResponseEntity.noContent().build();
-        
+
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("/{id}")
